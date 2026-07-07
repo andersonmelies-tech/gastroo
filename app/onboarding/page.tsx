@@ -33,7 +33,8 @@ export default function OnboardingPage() {
       router.push('/dashboard')
       router.refresh()
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Erro ao criar restaurante')
+      const e = err as { message?: string; details?: string; hint?: string }
+      setError(e?.message || 'Erro ao criar restaurante')
     }
     setSaving(false)
   }
