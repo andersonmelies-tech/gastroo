@@ -12,6 +12,7 @@ const nav = [
   { href: '/caixa',          icon: '💵', label: 'Caixa' },
   { href: '/estoque',        icon: '📦', label: 'Estoque' },
   { href: '/clientes',       icon: '👥', label: 'Clientes' },
+  { href: '/financeiro',     icon: '💰', label: 'Financeiro' },
   { href: '/relatorios',     icon: '📊', label: 'Relatórios' },
 ]
 
