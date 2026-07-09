@@ -235,3 +235,110 @@ textarea { resize: vertical; min-height: 60px; }
 .fw800    { font-weight: 800; }
 .fw700    { font-weight: 700; }
 .fw600    { font-weight: 600; }
+
+/* ─── App main content ───────────────────────────────────── */
+.app-main {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ─── Mobile bottom nav ──────────────────────────────────── */
+.mobile-bottom-nav {
+  display: none;
+}
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px;
+  color: #a8a29e;
+  transition: color .15s;
+}
+.mobile-nav-item.active {
+  color: #ea580c;
+}
+
+/* ─── Mobile overrides ───────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar */
+  aside.desktop-sidebar {
+    display: none;
+  }
+
+  /* Main takes full width */
+  .app-main {
+    margin-left: 0;
+    padding-bottom: 72px; /* space for bottom nav */
+  }
+
+  /* Show bottom nav */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: #0a0a0a;
+    border-top: 1px solid #1a1a1a;
+    height: 64px;
+    align-items: stretch;
+    padding: 0 4px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Reduce page padding on mobile */
+  .app-main > div,
+  .app-main > section {
+    padding: 16px !important;
+  }
+
+  /* Stat grids: 2 columns on mobile */
+  .app-main [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .app-main [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Tables scroll horizontally */
+  .app-main table {
+    min-width: 600px;
+  }
+  .app-main .card:has(table) {
+    overflow-x: auto;
+  }
+
+  /* Modals full height on mobile */
+  .app-main ~ * [style*="max-width: 560"],
+  .app-main ~ * [style*="max-width: 480"],
+  .app-main ~ * [style*="max-width: 400"] {
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* Page headers stack on mobile */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-main > div,
+  .app-main > section {
+    padding: 12px !important;
+  }
+  .fgrid {
+    grid-template-columns: 1fr !important;
+  }
+}

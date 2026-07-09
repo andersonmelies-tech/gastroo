@@ -38,7 +38,7 @@ export default function Sidebar({ restaurantName }: { restaurantName?: string })
   }
 
   return (
-    <aside style={{
+    <aside className="desktop-sidebar" style={{
       width: 'var(--sidebar-w)', minHeight: '100vh', background: '#0a0a0a',
       display: 'flex', flexDirection: 'column', position: 'fixed', top: 0, left: 0,
       zIndex: 100, borderRight: '1px solid #1a1a1a'
