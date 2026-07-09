@@ -62,8 +62,18 @@ export default function CadastroPage() {
           <div style={{
             width: 52, height: 52, borderRadius: 14, background: 'var(--brand)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '1.5rem', margin: '0 auto 12px', boxShadow: '0 4px 14px rgba(234,88,12,.35)'
-          }}>🍽️</div>
+            margin: '0 auto 12px', boxShadow: '0 4px 14px rgba(234,88,12,.35)', padding: 10
+          }}>
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%' }}>
+              <line x1="10" y1="4" x2="10" y2="14" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="7"  y1="4" x2="7"  y2="10" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="13" y1="4" x2="13" y2="10" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+              <path d="M7 10 Q10 13.5 13 10" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+              <line x1="10" y1="13" x2="10" y2="28" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+              <path d="M22 4 C22 4 25 7 25 13 L22 15" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="22" y1="4" x2="22" y2="28" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
+            </svg>
+          </div>
           <h1 style={{ fontSize: '1.6rem', fontWeight: 800 }}>Gastroo</h1>
           <p style={{ color: 'var(--tx2)', fontSize: '.85rem', marginTop: 4 }}>Cadastre seu restaurante — grátis</p>
         </div>

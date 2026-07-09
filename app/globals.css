@@ -264,15 +264,15 @@ textarea { resize: vertical; min-height: 60px; }
 
 /* ─── Mobile overrides ───────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Hide desktop sidebar */
+  /* Hide desktop sidebar — !important needed to beat inline style */
   aside.desktop-sidebar {
-    display: none;
+    display: none !important;
   }
 
   /* Main takes full width */
   .app-main {
-    margin-left: 0;
-    padding-bottom: 72px; /* space for bottom nav */
+    margin-left: 0 !important;
+    padding-bottom: 72px;
   }
 
   /* Show bottom nav */
@@ -291,54 +291,40 @@ textarea { resize: vertical; min-height: 60px; }
     padding-bottom: env(safe-area-inset-bottom);
   }
 
-  /* Reduce page padding on mobile */
-  .app-main > div,
-  .app-main > section {
-    padding: 16px !important;
+  /* Reduce page padding — !important overrides inline styles */
+  .app-main > div {
+    padding: 16px 14px !important;
+    max-width: 100% !important;
   }
 
-  /* Stat grids: 2 columns on mobile */
-  .app-main [style*="grid-template-columns: repeat(4"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  .app-main [style*="grid-template-columns: repeat(3"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* Tables scroll horizontally */
-  .app-main table {
-    min-width: 600px;
-  }
-  .app-main .card:has(table) {
+  /* Tables: horizontal scroll container */
+  .app-main .card {
     overflow-x: auto;
   }
-
-  /* Modals full height on mobile */
-  .app-main ~ * [style*="max-width: 560"],
-  .app-main ~ * [style*="max-width: 480"],
-  .app-main ~ * [style*="max-width: 400"] {
-    max-width: 100% !important;
-    margin: 0 !important;
-    border-radius: 16px 16px 0 0 !important;
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+  .app-main table {
+    min-width: 560px;
   }
 
-  /* Page headers stack on mobile */
-  .page-header {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Page header: stack vertically */
+  .page-header,
+  .app-main > div > div:first-child {
+    flex-wrap: wrap;
+    gap: 12px;
   }
+
+  /* Hide secondary columns in tables on very small */
+  .col-hide-sm { display: none !important; }
 }
 
 @media (max-width: 480px) {
-  .app-main > div,
-  .app-main > section {
-    padding: 12px !important;
+  .app-main > div {
+    padding: 12px 10px !important;
   }
   .fgrid {
     grid-template-columns: 1fr !important;
+  }
+  /* Stat grid: 2 cols */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
